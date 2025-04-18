@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import roomService from '../Services/roomService';
+import reviewService from '../Services/ReviewService';
+import ReviewsList from './ReviewList';
 
 const RoomDetail = () => {
   const { roomId } = useParams();
@@ -10,6 +12,20 @@ const RoomDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [activeImage, setActiveImage] = useState(0);
+  // const [reviews, setReviews] = useState([]);
+
+// Fetch reviews in useEffect
+// useEffect(() => {
+//   const fetchReviews = async () => {
+//     try {
+//       const response = await reviewService.getReviewsByRoom(roomId);
+//       setReviews(response.data);
+//     } catch (err) {
+//       console.error('Error fetching reviews:', err);
+//     }
+//   };
+//   fetchReviews();
+// }, []);
 
   useEffect(() => {
     const fetchRoomDetails = async () => {
@@ -26,12 +42,14 @@ const RoomDetail = () => {
     fetchRoomDetails();
   }, [roomId]);
 
+
   if (loading) return <div className="text-center text-violet-500 text-lg mt-10">Loading room details...</div>;
   if (error) return <div className="text-center text-red-500 text-lg mt-10">{error}</div>;
   if (!room) return <div className="text-center text-gray-500 text-lg mt-10">Room not found</div>;
 
   return (
     <div className="bg-violet-50 min-h-screen pb-10">
+      
       <div className="max-w-5xl mx-auto px-6 py-10">
         <button
           onClick={() => navigate(-1)}
@@ -45,13 +63,6 @@ const RoomDetail = () => {
 
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
           <h1 className="text-3xl font-bold text-violet-900 mb-2 md:mb-0">{room.location}</h1>
-          <span
-            className={`inline-block px-4 py-1 text-sm rounded-full font-semibold ${
-              room.available ? 'bg-green-100 text-green-700 border border-green-200' : 'bg-red-100 text-red-700 border border-red-200'
-            }`}
-          >
-            {room.available ? 'Available' : 'Booked'}
-          </span>
         </div>
 
         {room.images?.length > 0 ? (
@@ -108,10 +119,6 @@ const RoomDetail = () => {
                 <span>Price</span>
                 <span className="font-medium text-violet-900">₹{room.price}/month</span>
               </li>
-              <li className="flex justify-between items-center">
-                <span>Status</span>
-                <span className="font-medium">{room.status}</span>
-              </li>
             </ul>
           </div>
 
@@ -120,6 +127,10 @@ const RoomDetail = () => {
             <p className="text-violet-700 leading-relaxed">
               Beautiful room located in {room.location}. {room.acOrNonAc === 'AC' ? 'Air conditioned' : 'Non air conditioned'} with {room.beds} comfortable bed{room.beds > 1 ? 's' : ''}.
             </p>
+
+          <section className="mt-12">
+          <ReviewsList />
+        </section>
             
             <div className="mt-6 pt-6 border-t border-violet-100">
               <button

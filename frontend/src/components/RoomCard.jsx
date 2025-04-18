@@ -121,8 +121,10 @@ const RoomCard = ({ room, showBookButton = false, onBookClick }) => {
               </button>
             )}
           </div>
+          
         </div>
       </div>
+
     </div>
   );
 };

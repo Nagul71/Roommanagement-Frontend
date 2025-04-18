@@ -124,11 +124,11 @@ const MyRooms = () => {
                     </svg>
                   </div>
                 )}
-                <div className="absolute top-0 right-0 m-2">
+                {/* <div className="absolute top-0 right-0 m-2">
                   <span className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${room.available ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
                     {room.available ? 'Available' : 'Not Available'}
                   </span>
-                </div>
+                </div> */}
               </div>
               
               <div className="p-6">
@@ -162,12 +162,12 @@ const MyRooms = () => {
                 </div>
                 
                 <div className="mt-4 pt-4 border-t border-gray-100">
-                  <div className="flex justify-between mb-4">
+                  {/* <div className="flex justify-between mb-4">
                     <span className="text-sm text-gray-600">Status:</span>
                     <span className={`text-sm font-medium ${room.status === 'Active' ? 'text-green-600' : 'text-yellow-600'}`}>
                       {room.status}
                     </span>
-                  </div>
+                  </div> */}
                   
                   <div className="flex gap-3">
                     <button

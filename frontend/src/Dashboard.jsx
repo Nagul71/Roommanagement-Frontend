@@ -7,6 +7,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
   const userId = localStorage.getItem('userId');
   const userName = localStorage.getItem('userName');
+  const userEmail = localStorage.getItem("userEmail");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [notificationCount, setNotificationCount] = useState(2);
 
@@ -24,6 +25,7 @@ const Dashboard = () => {
     <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
     {/* Header */}
     <header className="bg-gradient-to-r from-violet-800 to-violet-700 text-white p-4 shadow-xl sticky top-0 z-50">
+
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
@@ -47,6 +49,12 @@ const Dashboard = () => {
             <Link to="/my-rooms" className="px-3 py-2 text-violet-100 hover:bg-violet-700/40 rounded-lg font-medium">
               My Listings
             </Link>
+            <Link to="/support" className="px-3 py-2 text-violet-100 hover:bg-violet-700/40 rounded-lg font-medium">
+            Support
+          </Link>
+          <Link to="/my-bookings" className="px-3 py-2 text-violet-100 hover:bg-violet-700/40 rounded-lg font-medium">
+            My Bookings
+          </Link>
           </div>
           
           <div className="flex items-center space-x-2">
@@ -73,7 +81,7 @@ const Dashboard = () => {
               <div className="absolute top-full right-0 mt-1 w-64 bg-white rounded-lg shadow-xl py-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
                 <div className="px-4 py-3 border-b border-gray-100">
                   <p className="text-sm font-medium text-gray-900">{userName || 'User'}</p>
-                  <p className="text-xs text-gray-500 mt-1">user@example.com</p>
+                  <p className="text-xs text-gray-500 mt-1">{userEmail || 'email'}</p>
                 </div>
                 <Link to="/profile" className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
                   <User size={16} className="mr-3 text-violet-600" /> My Profile

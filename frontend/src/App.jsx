@@ -12,10 +12,13 @@ import RoomDashboard from './Pages/RoomDashboard'
 import RoomDetail from './Pages/RoomDetail'
 import BookingForm from './components/BookingForm'
 import RoomBrowser from './Pages/RoomBrowser'
+import ReviewForm from './components/ReviewForm'
+import SupportPage from './Pages/SupportPage'
+import SupportRequestPage from './Pages/SupportRequestPage'
+import SupportRequestForm from './components/SupportRequestForm'
+import MyBookings from './Pages/MyBookings'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
     <BrowserRouter>
@@ -24,6 +27,11 @@ function App() {
       <Route path="/" element={<HomePage/>}/>
       <Route path="/login" element={<LoginForm />} />
       <Route path="/signup" element={<SignupForm />} />
+<Route path="/support" element={<SupportPage />} />
+<Route path="/support/:requestId" element={<SupportRequestPage />} />
+<Route path="/rooms/:roomId/review" element={<ReviewForm />} />
+<Route path="/support/page" element={<SupportRequestForm/>}/>
+<Route path="/my-bookings" element={<MyBookings />} />
       <Route path="/dashboard" element={
           <ProtectedRoute>
             <Dashboard />
@@ -51,7 +59,10 @@ function App() {
           </ProtectedRoute>
         } />
         <Route path="/browse-rooms" element={<RoomBrowser />} />
-        <Route path="/book-room" element={
+        // Add this to your existing routes
+        // Add this to your existing routes
+{/* <Route path="/rooms/:roomId" element={<RoomDetailPage />} /> */}
+        <Route path="/book-room/:roomId" element={
           <ProtectedRoute>
             <BookingForm />
           </ProtectedRoute>
