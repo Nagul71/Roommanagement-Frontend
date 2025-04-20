@@ -14,7 +14,6 @@ const HomePage = () => {
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between">
             <div className="flex items-center justify-between">
               <Link to="/" className="text-2xl font-bold text-violet-800 flex items-center">
-                <FaBed className="mr-2" /> 
                 <span className="font-handwriting">RentEase</span>
               </Link>
               
@@ -51,10 +50,10 @@ const HomePage = () => {
                 Discover rental rooms that fit your needs or earn income by renting out your space. Our platform connects property owners with renters seamlessly.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0">
-                <Link to="/search" className="px-6 py-3 bg-violet-600 text-white text-lg rounded-full shadow-lg hover:bg-violet-700 transition duration-300 text-center flex items-center justify-center">
+                <Link to="/signup" className="px-6 py-3 bg-violet-600 text-white text-lg rounded-full shadow-lg hover:bg-violet-700 transition duration-300 text-center flex items-center justify-center">
                   <FaSearch className="mr-2" /> Find a Room
                 </Link>
-                <Link to="/host" className="px-6 py-3 border-2 border-violet-300 text-violet-700 text-lg rounded-full hover:bg-violet-50 transition duration-300 text-center">
+                <Link to="/signup" className="px-6 py-3 border-2 border-violet-300 text-violet-700 text-lg rounded-full hover:bg-violet-50 transition duration-300 text-center">
                   List Your Property
                 </Link>
               </div>
@@ -410,7 +409,7 @@ const HomePage = () => {
             <Link to="/signup" className="px-8 py-4 bg-white text-violet-700 text-lg font-medium rounded-full shadow-lg hover:bg-violet-50 transition duration-300">
               Sign Up Free
             </Link>
-            <Link to="/search" className="px-8 py-4 border-2 border-white text-white text-lg font-medium rounded-full hover:bg-violet-700 transition duration-300">
+            <Link to="/signup" className="px-8 py-4 border-2 border-white text-white text-lg font-medium rounded-full hover:bg-violet-700 transition duration-300">
               Browse Listings
             </Link>
           </div>
@@ -468,7 +467,6 @@ const HomePage = () => {
           <div className="mt-12 pt-8 border-t border-gray-800 flex flex-col md:flex-row md:items-center md:justify-between">
             <div className="flex items-center justify-center md:justify-start mb-4 md:mb-0">
               <Link to="/" className="text-2xl font-bold text-white flex items-center">
-                <FaBed className="mr-2" /> 
                 <span className="font-handwriting">RentEase</span>
               </Link>
               <span className="ml-4 text-gray-500">© {new Date().getFullYear()} All rights reserved</span>

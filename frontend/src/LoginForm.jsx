@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const LoginForm = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -56,9 +57,11 @@ const handleSubmit = async (e) => {
           <h2 className="text-center text-3xl font-extrabold text-violet-800">Welcome Back !</h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             Or{' '}
-            <a href="/signup" className="font-medium text-violet-600 hover:text-violet-500">
+            <Link to="/signup">
+            <div className="font-medium text-violet-600 hover:text-violet-500">
               create a new account
-            </a>
+            </div>
+            </Link>
           </p>
         </div>
 

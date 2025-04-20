@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
@@ -24,7 +24,7 @@ const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError('');
-    
+
     try {
       const response = await axios.post(`${API_BASE_URL}/signin`, formData);
       
@@ -56,9 +56,11 @@ const handleSubmit = async (e) => {
           <h2 className="text-center text-3xl font-extrabold text-violet-800">Create your account</h2>
           <p className="mt-2 text-center text-sm text-gray-600">
             Or{' '}
-            <a href="/login" className="font-medium text-violet-600 hover:text-violet-500">
+            <Link to = '/login'>
+            <div className="font-medium text-violet-600 hover:text-violet-500">
               sign in to your existing account
-            </a>
+            </div>
+            </Link>
           </p>
         </div>
 
@@ -203,9 +205,11 @@ const handleSubmit = async (e) => {
 
           <p className="text-center text-sm text-gray-600">
             Already have an account?{' '}
-            <a href="/login" className="font-medium text-violet-600 hover:text-violet-500">
+            <Link to = '/login'>
+            <div className="font-medium text-violet-600 hover:text-violet-500">
               Sign in
-            </a>
+            </div>
+            </Link>
           </p>
         </form>
       </div>
