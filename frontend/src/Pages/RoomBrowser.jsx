@@ -57,6 +57,7 @@ const RoomBrowser = () => {
   if (error) return <div className="text-center text-lg text-red-500 mt-10">{error}</div>;
 
   return (
+    <body class="bg-violet-50 min-h-screen">
     <div className="room-browser px-6 py-10 max-w-screen-xl mx-auto bg-violet-50">
       <div className="text-center mb-10">
         <h1 className="text-4xl font-bold text-violet-900 mb-2">Find Your Perfect Room</h1>
@@ -66,7 +67,7 @@ const RoomBrowser = () => {
 
       <div className="bg-white shadow-md rounded-2xl p-6 mb-10 border border-violet-200">
       <button
-          onClick={() => navigate(-1)}
+          onClick={() => navigate('/dashboard')}
           className="mb-6 inline-flex items-center text-violet-600 hover:text-violet-800 font-medium transition duration-200"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
@@ -164,6 +165,7 @@ const RoomBrowser = () => {
         </div>
       </div>
     </div>
+    </body>
   );
 };
 

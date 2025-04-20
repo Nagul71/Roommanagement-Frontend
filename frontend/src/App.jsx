@@ -17,21 +17,45 @@ import SupportPage from './Pages/SupportPage'
 import SupportRequestPage from './Pages/SupportRequestPage'
 import SupportRequestForm from './components/SupportRequestForm'
 import MyBookings from './Pages/MyBookings'
+import EditRoom from './Pages/EditRoom'
+import Profile from './Pages/Profile'
 
 function App() {
   return (
     <>
     <BrowserRouter>
     <Routes>
-      {/* <Route path="*" element={<HomePage/>} /> */}
+      <Route path="*" element={<HomePage/>} />
       <Route path="/" element={<HomePage/>}/>
       <Route path="/login" element={<LoginForm />} />
       <Route path="/signup" element={<SignupForm />} />
-<Route path="/support" element={<SupportPage />} />
-<Route path="/support/:requestId" element={<SupportRequestPage />} />
-<Route path="/rooms/:roomId/review" element={<ReviewForm />} />
-<Route path="/support/page" element={<SupportRequestForm/>}/>
-<Route path="/my-bookings" element={<MyBookings />} />
+      <Route path="/profile/:userId" element={<Profile />} />
+      <Route path="/support" element={
+        <ProtectedRoute>
+        <SupportPage />
+        </ProtectedRoute>} />
+      <Route path="/support/:requestId" element={
+        <ProtectedRoute>
+        <SupportRequestPage />
+        </ProtectedRoute>} />
+      <Route path="/rooms/:roomId/review" element={
+        <ProtectedRoute>
+        <ReviewForm />
+        </ProtectedRoute>
+        } />
+      <Route path="/support/page" element={
+        <ProtectedRoute>
+        <SupportRequestForm/>
+        </ProtectedRoute>}/>
+      <Route path="/my-bookings" element={
+        <ProtectedRoute>
+        <MyBookings />
+        </ProtectedRoute>} />
+      <Route path="/edit-room/:roomId" element={
+        <ProtectedRoute>
+        <EditRoom/>
+        </ProtectedRoute>
+        } />
       <Route path="/dashboard" element={
           <ProtectedRoute>
             <Dashboard />
@@ -48,7 +72,7 @@ function App() {
           </ProtectedRoute>
         } />
 
-<Route path="/addroom" element={
+        <Route path="/addroom" element={
           <ProtectedRoute>
             <RoomForm/>
           </ProtectedRoute>
@@ -58,10 +82,10 @@ function App() {
             <RoomDetail />
           </ProtectedRoute>
         } />
-        <Route path="/browse-rooms" element={<RoomBrowser />} />
-        // Add this to your existing routes
-        // Add this to your existing routes
-{/* <Route path="/rooms/:roomId" element={<RoomDetailPage />} /> */}
+        <Route path="/browse-rooms" element={
+          <ProtectedRoute>
+          <RoomBrowser />
+          </ProtectedRoute>} />
         <Route path="/book-room/:roomId" element={
           <ProtectedRoute>
             <BookingForm />

@@ -27,9 +27,18 @@ const getAllRooms = () => {
     return axios.get(`${API_URL}/getallrooms`);
   };
 
+const getdeletebyid = (roomId) =>{
+  return axios.delete(`${API_URL}/delete/${roomId}`);
+}
+
+const updateRoombyid = (roomId, data) => {
+  return axios.put(`${API_URL}/update/${roomId}`, data);
+}
 export default {
   createRoom,
   getRoomsCreatedByUser,
   getRoomDetails,
-  getAllRooms
+  getAllRooms,
+  getdeletebyid,
+  updateRoombyid
 };

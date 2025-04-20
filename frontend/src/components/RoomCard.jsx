@@ -38,9 +38,9 @@ const RoomCard = ({ room, showBookButton = false, onBookClick }) => {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         
-        <div className={`absolute top-3 left-3 py-1 px-3 rounded-md text-xs font-semibold shadow-sm ${room.available ? 'bg-violet-600 text-white' : 'bg-white text-violet-800 border border-violet-300'}`}>
+        {/* <div className={`absolute top-3 left-3 py-1 px-3 rounded-md text-xs font-semibold shadow-sm ${room.available ? 'bg-violet-600 text-white' : 'bg-white text-violet-800 border border-violet-300'}`}>
           {room.available ? 'BOOKED' : 'AVAILABLE'}
-        </div>
+        </div> */}
         
         {/* Quick view button that appears on hover */}
         <div className="absolute bottom-3 right-3 transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
@@ -115,7 +115,7 @@ const RoomCard = ({ room, showBookButton = false, onBookClick }) => {
                   e.stopPropagation();
                   onBookClick();
                 }}
-                disabled={room.available}
+              
               >
                 Book Now
               </button>

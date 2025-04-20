@@ -34,7 +34,7 @@ const Dashboard = () => {
           <Link to ='/'>
           <h1 className="text-2xl font-extrabold tracking-tight">RentEase</h1>
           </Link>
-          <span className="hidden md:inline-block text-violet-100 text-xs font-medium px-2 py-0.5 bg-violet-700/40 rounded-full border border-violet-400/30">Beta</span>
+    
         </div>
         
         {/* Desktop Navigation */}
@@ -58,19 +58,12 @@ const Dashboard = () => {
           </div>
           
           <div className="flex items-center space-x-2">
-            <button className="p-2 hover:bg-violet-700/40 rounded-full relative group">
-              <Bell size={20} />
-              {notificationCount > 0 && (
-                <span className="absolute top-0 right-0 w-4 h-4 bg-rose-500 rounded-full flex items-center justify-center text-xs font-bold">
-                  {notificationCount}
-                </span>
-              )}
-              <span className="absolute top-full right-0 mt-1 w-max bg-white text-gray-800 text-xs p-1 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-50">Notifications</span>
-            </button>
+            <Link to='/support'>
             <button className="p-2 hover:bg-violet-700/40 rounded-full relative group">
               <HelpCircle size={20} />
               <span className="absolute top-full right-0 mt-1 w-max bg-white text-gray-800 text-xs p-1 rounded shadow-lg opacity-0 group-hover:opacity-100 transition-opacity z-50">Help</span>
             </button>
+            </Link>
             <div className="relative group">
               <button className="flex items-center space-x-2 py-1 px-2 hover:bg-violet-700/40 rounded-lg">
                 <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center text-violet-700 font-bold">
@@ -83,11 +76,8 @@ const Dashboard = () => {
                   <p className="text-sm font-medium text-gray-900">{userName || 'User'}</p>
                   <p className="text-xs text-gray-500 mt-1">{userEmail || 'email'}</p>
                 </div>
-                <Link to="/profile" className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                <Link to={`/profile/${userId}`} className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
                   <User size={16} className="mr-3 text-violet-600" /> My Profile
-                </Link>
-                <Link to="/settings" className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
-                  <Settings size={16} className="mr-3 text-violet-600" /> Settings
                 </Link>
                 <button onClick={() => {
                   localStorage.removeItem('userId');
@@ -361,7 +351,6 @@ const Dashboard = () => {
                   <span className="text-white text-lg font-extrabold">R</span>
                 </div>
                 <h2 className="text-xl font-bold text-violet-700">RentEase</h2>
-                <span className="ml-2 text-xs font-medium px-2 py-0.5 bg-violet-100 text-violet-800 rounded-full">Beta</span>
               </div>
               <p className="text-gray-600 text-sm mt-2 text-center md:text-left">Find your perfect rental property</p>
             </div>

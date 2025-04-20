@@ -33,9 +33,15 @@ const updateBookingStatus = (bookingId, status) => {
   return axios.patch(`${API_URL}/${bookingId}/status`, { status });
 };
 
+// In your bookingService.js
+const cancelBooking = async (bookingId) => {
+  return axios.post(`${API_URL}/cancel/${bookingId}`);
+};
+
 export default {
   createBooking,
   getUserBookings,
   getRoomBookings,
-  updateBookingStatus
+  updateBookingStatus,
+  cancelBooking
 };
